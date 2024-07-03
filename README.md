@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # CI/CD Deployment to Heroku
 
+![CI CD Workflow](draw-cicd.png)
+
 This repository uses GitHub Actions for continuous integration and deployment to Heroku. The workflow is triggered on pushes to the `master` branch.
 
 ## Workflow Description
