@@ -27,11 +27,17 @@ jobs:
     - name: Build project
       run: npm run build
 
+      - name: Install Heroku CLI
+      run: |
+        sudo snap install --classic heroku
+        heroku plugins:install @heroku-cli/plugin-auth
+        heroku auth:token
+
     - name: Deploy to Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      run: |
+      run:  |
         npm install -g heroku
         heroku git:remote -a $HEROKU_APP_NAME
         git push heroku master
