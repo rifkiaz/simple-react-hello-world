@@ -2,6 +2,38 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# CI/CD Deployment to Heroku
+
+This repository uses GitHub Actions for continuous integration and deployment to Heroku. The workflow is triggered on pushes to the `master` branch.
+
+## Workflow Description
+
+The workflow performs the following steps:
+
+1. **Checkout repository**: Checks out the repository's code using GitHub Actions.
+2. **Set up Node.js**: Sets up Node.js environment using `setup-node` action with Node.js version 14.
+3. **Install dependencies**: Installs project dependencies using `npm install`.
+4. **Run linter**: Runs the linter to ensure code quality using `npm run lint`.
+5. **Build project**: Builds the project using `npm run build`.
+6. **Deploy to Heroku**: Deploys the built project to Heroku using `akhileshns/heroku-deploy` action.
+
+## Secrets Required
+
+Ensure the following secrets are set up in your GitHub repository's settings:
+- `HEROKU_API_KEY`: Heroku API key with permissions to deploy.
+- `HEROKU_APP_NAME`: Name of your Heroku application.
+- `HEROKU_EMAIL`: Email associated with your Heroku account.
+
+## Usage
+
+To use this workflow:
+- Ensure the above secrets are added to your repository's secrets.
+- Push changes to the `master` branch to trigger the workflow.
+- Check the Actions tab in your GitHub repository to monitor the workflow execution.
+
+For more details on configuring GitHub Actions and deploying to Heroku, refer to the [GitHub Actions Documentation](https://docs.github.com/actions) and [Heroku Documentation](https://devcenter.heroku.com/).
+
+
 ## Available Scripts
 
 In the project directory, you can run:
